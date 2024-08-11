@@ -11,6 +11,7 @@ int main(){
       vector<vector<bool>> visited(height, vector<bool>(width, false));
       bool connect1 = false;
       bool solved = false;
+      
       for (int i = 0; i < height; i++) {
         if (solved) {
           break;
