@@ -70,12 +70,13 @@ public:
         return depth;
       }
 
-      if (!visited[curr]) {
-        visited[curr] = true;
-        for (auto& nextLocation: next[curr]) {
+      visited[curr] = true;
+      for (auto& nextLocation: next[curr]) {
+        if (!visited[nextLocation]) {
           q.push({nextLocation, depth+1});
         }
       }
+      
     }
     return 0;
   }
