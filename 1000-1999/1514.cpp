@@ -18,7 +18,6 @@ public:
     }
 
     vector<double> maxDist(n, double(0));
-    vector<int> prev(n, -1);
     maxDist[start_node] = double(1);
     queue<int> q;
     q.push(start_node);
@@ -29,11 +28,7 @@ public:
       q.pop();
 
       for (auto& next: m[node]) {
-        if (prev[next.first] == -1) {
-          q.push(next.first);
-        }
         if (maxDist[next.first] < maxDist[node] * next.second) {
-          prev[next.first] = node;
           maxDist[next.first] = maxDist[node] * next.second;
           q.push(next.first);
         }
